@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import { useState, ReactNode } from 'react';
 import UserContext, { User } from './UserContext'
 // interface UserContextProviderProps {
 //     children: ReactNode;
@@ -11,6 +11,7 @@ const UserContextProvider= ({children}:userProvideProps)=>{
     const [user, setUser] = useState<User>(
         {
             name:'',
+            email:'',
             password:'',
             isUser:false,
             loggedId:false

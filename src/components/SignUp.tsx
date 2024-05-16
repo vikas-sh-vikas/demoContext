@@ -7,19 +7,19 @@ function SignUp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-    const {setUser} = useContext(UserContext);
+    const {user,setUser} = useContext(UserContext);
     const handleSave = (e:any) =>{
       e.preventDefault();
-      setUser({
-        name:name,
-        password:password,
-        isUser:true,
-        loggedId:false
-      })
-
-      console.log("Reach")
-      // return <Link to="/profile"></Link>;
-
+      if(password == confirmPassword){
+        setUser({
+          name:name,
+          email:username,
+          password:password,
+          isUser:true,
+          loggedId:false
+        })
+      }else
+      console.log("Passwor Should be match")
     }
     // console.log("Username & Password",username,password)
     return (
@@ -44,7 +44,7 @@ function SignUp() {
           </input>
           <label>Password</label>
           <input
-          type="text"
+          type="password"
           onChange={(e) => {
             setPassword(e.target.value)
           }}
@@ -52,7 +52,7 @@ function SignUp() {
           </input>
           <label>Confirm Password</label>
           <input
-          type="text"
+          type="password"
           onChange={(e) => {
             setConfirmPassword(e.target.value)
           }}

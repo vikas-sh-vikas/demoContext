@@ -10,9 +10,8 @@ function Home() {
   console.log("UserData",user)
   return (
     <div>
-        <h1>Home</h1>
-        {user.isUser ? <SignIn />
-:        <SignUp />}
+        {!user.isUser && <SignUp />}
+:        {user.isUser && !user.loggedId && <SignIn />}
         {user.loggedId ? <Profile />: null}
     </div>
   )

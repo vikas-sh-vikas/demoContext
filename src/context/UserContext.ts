@@ -1,7 +1,7 @@
 import { createContext, Dispatch,SetStateAction} from "react";
-import  React from 'react';
 export type User = {
     name:string
+    email:string
     password:string
     isUser:boolean
     loggedId:boolean
@@ -15,6 +15,7 @@ export interface UserContextInterface {
 const defaultState = {
     user: {
         name: '',
+        email:'',
         password: '',
         isUser:false,
         loggedId:false

@@ -3,6 +3,7 @@ import UserContext from '../context/UserContext'
 
 function Profile() {
   const {user} = useContext(UserContext);
+  console.log("ProfileData",user)
   return (
     <div>
       <h1>Profile {user.name}</h1>
