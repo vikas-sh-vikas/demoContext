@@ -6,6 +6,7 @@ function SignIn() {
   const [password, setPassword] = useState("")
   const [usernamematch, setUsernameMatch] = useState("")
   const [passwordMatch, setPasswordMatch] = useState("")
+  const [error, setError] = useState(false)
   const {user,setUser} = useContext(UserContext) 
   console.log(username,usernamematch)
   console.log(password,passwordMatch)
@@ -29,7 +30,9 @@ function SignIn() {
 
     }
     else{
+      setError(true)
       console.log("Username or Password is incorrect")
+      // console.error("Username or Password is incorrect");
     }
 
     console.log("Reach")
@@ -40,7 +43,7 @@ function SignIn() {
     <div>
       <h1 className='m-4'>Sign In</h1>
       <form>
-        <label>Email Id</label>
+        <label>Email Id *</label>
         <div className='p-2'> 
         <input
         type="text"
@@ -50,7 +53,7 @@ function SignIn() {
         >
         </input>
         </div>
-        <label>Password</label>
+        <label>Password *</label>
         <div className='p-2'>
         <input
         type="password"
@@ -60,7 +63,9 @@ function SignIn() {
         >
         </input>
         </div>
+        {error ? <p className='text-danger'>Username or Password is incorrect</p> : null}
         <button className='btn btn-primary m-4' onClick={(e)=>handleLog(e)}>Sign In</button>
+
 
       </form>
     </div>

@@ -8,6 +8,8 @@ function SignUp() {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const {user,setUser} = useContext(UserContext);
+  const [error, setError] = useState(false)
+
     const handleSave = (e:any) =>{
       e.preventDefault();
       if(password == confirmPassword){
@@ -19,6 +21,7 @@ function SignUp() {
           loggedId:false
         })
       }else
+      setError(true)
       console.log("Passwor Should be match")
     }
     // console.log("Username & Password",username,password)
@@ -26,7 +29,7 @@ function SignUp() {
       <div>
         <h1 className='m-4'>Sign Up</h1>
         <form>
-          <label>Name</label>
+          <label>Name *</label>
           <div className='p-2'>
           <input
           type="text"
@@ -37,7 +40,7 @@ function SignUp() {
           >
           </input>
           </div>
-          <label>Email Id</label>
+          <label>Email Id *</label>
           <div className='p-2'>
           <input
           type="text"
@@ -48,7 +51,7 @@ function SignUp() {
           >
           </input>
           </div>
-          <label>Password</label>
+          <label>Password *</label>
           <div className='p-2'>
           <input
           type="password"
@@ -69,7 +72,9 @@ function SignUp() {
           }}
           >
           </input>
+
           </div>
+        {error ?  <p className='text-danger'>Password and Onfirm Password not match</p> : null}
           <button className="btn btn-primary m-4" onClick={(e)=>handleSave(e)}>Sign Up</button>
         </form>
       </div>
