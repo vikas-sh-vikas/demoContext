@@ -38,9 +38,10 @@ function SignIn() {
   }
   return (
     <div>
-      <h1>Sign In</h1>
+      <h1 className='m-4'>Sign In</h1>
       <form>
-        <label>EmailId</label>
+        <label>Email Id</label>
+        <div className='p-2'> 
         <input
         type="text"
         onChange={(e) => {
@@ -48,7 +49,9 @@ function SignIn() {
         }}
         >
         </input>
+        </div>
         <label>Password</label>
+        <div className='p-2'>
         <input
         type="password"
         onChange={(e) => {
@@ -56,7 +59,8 @@ function SignIn() {
         }}
         >
         </input>
-        <button onClick={(e)=>handleLog(e)}>Sign In</button>
+        </div>
+        <button className='btn btn-primary m-4' onClick={(e)=>handleLog(e)}>Sign In</button>
 
       </form>
     </div>
